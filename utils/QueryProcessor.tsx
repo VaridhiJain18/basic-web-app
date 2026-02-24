@@ -32,6 +32,22 @@ export default function QueryProcessor(query: string): string {
     return nums.reduce((a, b) => a + b, 0).toString();
   }
 
+  // Prime numbers
+if (lowerQuery.includes("prime")) {
+  if (!nums) return "";
+
+  const isPrime = (n: number): boolean => {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  };
+
+  const primes = nums.filter(isPrime);
+  return primes.join(", ");
+}
+
   // Subtraction
   if (lowerQuery.includes("minus")) {
     return (nums[0] - nums[1]).toString();
