@@ -69,5 +69,30 @@ if (lowerQuery.includes("to the power of")) {
     return (nums[0] / nums[1]).toString();
   }
 
+  // Generic arithmetic expression handler
+if (
+  lowerQuery.includes("plus") ||
+  lowerQuery.includes("minus") ||
+  lowerQuery.includes("multiplied") ||
+  lowerQuery.includes("divided")
+) {
+  let expression = lowerQuery;
+
+  expression = expression.replace(/what is/g, "");
+  expression = expression.replace(/multiplied by/g, "*");
+  expression = expression.replace(/divided by/g, "/");
+  expression = expression.replace(/plus/g, "+");
+  expression = expression.replace(/minus/g, "-");
+
+  // Remove everything except numbers and operators
+  expression = expression.replace(/[^0-9+\-*/().]/g, "");
+
+  try {
+    return eval(expression).toString();
+  } catch {
+    return "";
+  }
+}
+
   return "";
 }
