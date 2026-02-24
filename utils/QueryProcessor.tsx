@@ -6,9 +6,11 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
+  const lowerQuery = query.toLowerCase();
+  const numbers = query.match(/\d+/g);
 
   if (query.toLowerCase().includes("name")) {
-    return "Rohan";
+    return "Varidhi";
   }
 
   if (query.toLowerCase().includes("andrew id")) {
@@ -31,7 +33,14 @@ export default function QueryProcessor(query: string): string {
     const sum = numbers.map(Number).reduce((a, b) => a + b, 0);
     return sum.toString();
   }
-    
+
+   if (lowerQuery.includes("minus")) {
+    return (nums[0] - nums[1]).toString();
+  }
+
+   if (lowerQuery.includes("multiplied")) {
+    return (nums[0] * nums[1]).toString();
+  }   
 
   
   return "";
