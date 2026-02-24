@@ -42,6 +42,11 @@ export default function QueryProcessor(query: string): string {
     return (nums[0] * nums[1]).toString();
   }
 
+  // Power
+if (lowerQuery.includes("to the power of")) {
+  if (nums.length < 2) return "";
+  return Math.pow(nums[0], nums[1]).toString();
+}
   // Division
   if (lowerQuery.includes("divided")) {
     if (nums[1] === 0) return "undefined";
