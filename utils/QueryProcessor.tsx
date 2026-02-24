@@ -8,6 +8,7 @@ export default function QueryProcessor(query: string): string {
   }
   const lowerQuery = query.toLowerCase();
   const numbers = query.match(/\d+/g);
+  const nums = numbers.map(Number);
 
   if (query.toLowerCase().includes("name")) {
     return "Varidhi";
