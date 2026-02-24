@@ -17,11 +17,22 @@ export default function QueryProcessor(query: string): string {
 
   if (query.toLowerCase().includes("largest")) {
     const numbers = query.match(/\d+/g);
-    
     if (numbers) {
       const max = Math.max(...numbers.map(Number));
       return max.toString();
     }
   }
+
+  if (query.toLowerCase().includes("plus")) {
+    const numbers = query.match(/\d+/g);
+    if (!numbers || numbers.length < 2) {
+      return "";
+    }
+    const sum = numbers.map(Number).reduce((a, b) => a + b, 0);
+    return sum.toString();
+  }
+    
+
+  
   return "";
 }
