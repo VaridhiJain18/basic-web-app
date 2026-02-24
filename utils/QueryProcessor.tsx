@@ -61,7 +61,7 @@ if (lowerQuery.includes("prime")) {
   // Power
 if (lowerQuery.includes("to the power of")) {
   if (nums.length < 2) return "";
-  return Math.pow(nums[0], nums[1]).toString();
+  return (BigInt(nums[0]) ** BigInt(nums[1])).toString();
 }
   // Division
   if (lowerQuery.includes("divided")) {
